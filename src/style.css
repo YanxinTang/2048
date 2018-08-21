@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    border: 0;
+}
+body{
+    background: #ede0c8;
+}
+.header{
+    min-height: 72px;
+}
+.header .title{
+    color: #FFF;
+    font-size: 3rem;
+}
+#game-container{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+}
+#grid{
+    width: 400px;
+    height: 400px;
+    padding: 5px;
+    background: #bbada0;
+    border-radius: 5px;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+#grid .grid-item{
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: rgba(238, 228, 218, 0.35)
+}
+
+#tile{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.tile-item{
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+    text-align: center;
+    background: antiquewhite;
+    box-sizing: content-box;
+    margin: 10px;
+    line-height: 90px;
+    font-size: 3rem;
+    position: absolute;
+    transition: all .1s;
+}
+.tile-0-0{
+    left: 0;
+    top: 0;
+}
+.tile-0-1{
+    left: 100px;
+    top: 0;
+}
+.tile-0-2{
+    left: 200px;
+    top: 0;
+}
+.tile-0-3{
+    left: 300px;
+    top: 0;
+}
+.tile-1-0{
+    left: 0;
+    top: 100px;
+}
+.tile-1-1{
+    left: 100px;
+    top: 100px;
+}
+.tile-1-2{
+    left: 200px;
+    top: 100px;
+}
+.tile-1-3{
+    left: 300px;
+    top: 100px;
+}
+.tile-2-0{
+    left: 0;
+    top: 200px;
+}
+.tile-2-1{
+    left: 100px;
+    top: 200px;
+}
+.tile-2-2{
+    left: 200px;
+    top: 200px;
+}
+.tile-2-3{
+    left: 300px;
+    top: 200px;
+}
+.tile-3-0{
+    left: 0;
+    top: 300px;
+}
+.tile-3-1{
+    left: 100px;
+    top: 300px;
+}
+.tile-3-2{
+    left: 200px;
+    top: 300px;
+}
+.tile-3-3{
+    left: 300px;
+    top: 300px;
+}
+.tile-2{
+
+}
+.tile-4{
+    background: #ede0c8;
+}
+.tile-8{
+    color: #f9f6f2;
+    background: #f2b179;
+}
+.tile-16 {
+    color: #f9f6f2;
+    background: #f59563;
+}
+.tile-32 {
+    color: #f9f6f2;
+    background: #f67c5f;
+}
+.tile-64 {
+    color: #f9f6f2;
+    background: #f65e3b;
+}

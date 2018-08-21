@@ -1,0 +1,29 @@
+{
+  "name": "2048",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "sideEffects": [
+    "*.css"
+  ],
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.22.1",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.4"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
+
+  }
+}
