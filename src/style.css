@@ -42,13 +42,13 @@ body{
     background: rgba(238, 228, 218, 0.35)
 }
 
-#tile{
+#tile-wrapper{
     position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
 }
-.tile-item{
+.tile{
     width: 90px;
     height: 90px;
     border-radius: 5px;
