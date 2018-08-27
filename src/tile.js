@@ -16,6 +16,7 @@ class Tile {
 
   template() {
     const tile = document.createElement('div');
+    tile.innerHTML = '<div class="inner"></div>'
     tile.classList.add('tile');
     tile.classList.add(`tile-${this.value}`);
     return tile;
@@ -36,7 +37,7 @@ class Tile {
 
   set value(v) {
     if (this.node) {
-      this.node.innerText = v;
+      this.node.firstChild.innerText = v;
       this.node.classList.replace(`tile-${this.value}`, `tile-${v}`);
     }
     this._value = v;
@@ -45,6 +46,7 @@ class Tile {
   get value() {
     return this._value;
   }
+
 }
 
 export default Tile;

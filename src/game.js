@@ -16,11 +16,6 @@ export default class {
     this.grid.genTile();
   }
 
-  /*  init() {
-
-    }*/
-
-
   events() {
     const _this = this;
     document.onkeyup = function (event) {
@@ -68,14 +63,19 @@ export default class {
 
         if (tile) {
           tile.merge = false;
+          tile.node.classList.remove('newer', 'merge');
           let trans = this.getNextPosition(tile.position, vector);
           let target = this.grid.getTile(trans.next);
 
           if(target && !target.merge && tile.value === target.value){
 
-            tile.value *= 2;
-            tile.merge = true;
+            target.value *= 2;
+
+            target.merge = true;
+
+            target.node.classList.add('merge');
             this.grid.coverTo(tile, target.position);
+
             canGenTile = true;
           }else{
             if(tile.position !== trans.previous){

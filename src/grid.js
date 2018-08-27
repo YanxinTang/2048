@@ -41,6 +41,7 @@ export default class  {
       return this.genTile();
     }
     const newer = new Tile(this.base[key], {x, y});
+    newer.node.classList.add('newer');
     this.container[y][x] = newer;
     this.tileWrapper.appendChild(newer.node);
   }
@@ -52,9 +53,11 @@ export default class  {
     }
   }
   coverTo(tile, targetLocation){
-    let targetTile = this.getTile(targetLocation);
-    this.moveTo(tile, targetLocation);
-    this.remove(targetTile);
+    tile.node.addEventListener('transitionend', ()=>{
+      this.remove(tile);
+    }, false);
+    this.container[tile.position.y][tile.position.x] = null;
+    tile.position = targetLocation;
   }
   moveTo(tile, targetLocation){
     this.container[targetLocation.y][targetLocation.x] = tile;
