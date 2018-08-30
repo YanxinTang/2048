@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import Tile from './tile';
 import Grid from './grid';
 
 export default class {
@@ -17,27 +15,48 @@ export default class {
   }
 
   events() {
+    let toucheStartX = 0, toucheStartY = 0,
+        toucheEndX = 0, toucheEndY = 0;
+    const map = new Map([
+      ['ArrowLeft', 0],
+      ['ArrowUp', 3],
+      ['ArrowRight', 1],
+      ['ArrowDown', 2]
+    ]);
     const _this = this;
     document.onkeyup = function (event) {
-      switch (event.key) {
-        case 'ArrowLeft':
-          _this.control(0);
-          break;
-        case 'ArrowUp':
-          _this.control(3);
-          break;
-        case 'ArrowRight':
-          console.log('right');
-          _this.control(1);
-          break;
-        case 'ArrowDown':
-          console.log('down');
-          _this.control(2);
-          break;
-        default:
-          break;
-      }
+      _this.control(map.get(event.key))
     };
+
+    let game_container = document.getElementById('game-container');
+    game_container.addEventListener('touchstart', function(e){
+      e.preventDefault();
+      if(e.touches.length > 1){
+        return ;
+      }
+      toucheStartX = e.touches[0].clientX;
+      toucheStartY = e.touches[0].clientY;
+    });
+    game_container.addEventListener('touchmove', function(e){
+      e.preventDefault();
+    });
+    game_container.addEventListener('touchend', function(e){
+      e.preventDefault();
+      if(e.touches.length > 1){
+        return ;
+      }
+      toucheEndX = e.changedTouches[0].clientX;
+      toucheEndY = e.changedTouches[0].clientY;
+
+      let dx = toucheEndX - toucheStartX,
+          dy = toucheEndY - toucheStartY;
+
+      if(Math.abs(dx) > Math.abs(dy)){
+        _this.control(dx>0?1:0);
+      }else{
+        _this.control(dy>0?2:3);
+      }
+    });
   }
 
   buildTraversals(vector) {

@@ -1,3 +1,7 @@
+:root {
+    --grid-width: 300px;
+    --tile-width: 100px;
+}
 * {
     margin: 0;
     border: 0;
@@ -18,6 +22,31 @@ body{
     margin-right: auto;
     position: relative;
 
+}
+@media screen and (max-width: 520px) {
+    #game-container{
+        width: 300px;
+    }
+    #grid{
+        width: var(--grid-width)!important;
+        height: var(--grid-width)!important;;
+    }
+    #grid .grid-item{
+        width: 65px!important;
+        height: 65px!important;
+        margin: 5px!important;
+    }
+    .tile{
+        margin: 10px!important;
+    }
+    .tile .inner{
+        width: 65px!important;
+        height: 65px!important;
+        line-height: 65px!important;
+    }
+    :root {
+        --tile-width: 75px!important;
+    }
 }
 #grid{
     width: 400px;
@@ -49,13 +78,8 @@ body{
     z-index: 10;
 }
 .tile{
-
-
-
     margin: 10px;
     position: absolute;
-
-
     transition: all .1s ease-in-out;
     will-change: transform;
 }
@@ -74,49 +98,49 @@ body{
     transform: translate(0, 0);
 }
 .tile-0-1{
-     transform: translate(100px, 0);
+     transform: translate(calc(var(--tile-width) * 1), 0);
 }
 .tile-0-2{
-     transform: translate(200px, 0);
+     transform: translate(calc(var(--tile-width) * 2), 0);
 }
 .tile-0-3{
-     transform: translate(300px, 0);
+     transform: translate(calc(var(--tile-width) * 3), 0);
 }
 .tile-1-0{
-     transform: translate(0, 100px);
+     transform: translate(0, calc(var(--tile-width) * 1));
 }
 .tile-1-1{
-     transform: translate(100px, 100px);
+     transform: translate(calc(var(--tile-width) * 1), calc(var(--tile-width) * 1));
 }
 .tile-1-2{
-     transform: translate(200px, 100px);
+     transform: translate(calc(var(--tile-width) * 2), calc(var(--tile-width) * 1));
 }
 .tile-1-3{
-     transform: translate(300px, 100px);
+     transform: translate(calc(var(--tile-width) * 3), calc(var(--tile-width) * 1));
 }
 .tile-2-0{
-     transform: translate(0, 200px);
+     transform: translate(0, calc(var(--tile-width) * 2));
 }
 .tile-2-1{
-     transform: translate(100px, 200px);
+     transform: translate(calc(var(--tile-width) * 1), calc(var(--tile-width) * 2));
 }
 .tile-2-2{
-     transform: translate(200px, 200px);
+     transform: translate(calc(var(--tile-width) * 2), calc(var(--tile-width) * 2));
 }
 .tile-2-3{
-     transform: translate(300px, 200px);
+     transform: translate(calc(var(--tile-width) * 3), calc(var(--tile-width) * 2));
 }
 .tile-3-0{
-     transform: translate(0, 300px);
+     transform: translate(0, calc(var(--tile-width) * 3));
 }
 .tile-3-1{
-     transform: translate(100px, 300px);
+     transform: translate(calc(var(--tile-width) * 1), calc(var(--tile-width) * 3));
 }
 .tile-3-2{
-     transform: translate(200px, 300px);
+     transform: translate(calc(var(--tile-width) * 2), calc(var(--tile-width) * 3));
 }
 .tile-3-3{
-     transform: translate(300px, 300px);
+     transform: translate(calc(var(--tile-width) * 3), calc(var(--tile-width) * 3));
 }
 .tile-2{
 
